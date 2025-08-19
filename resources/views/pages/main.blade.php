@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Ruang Cerita by Farid Ahmad Fadhilah">
+  <meta name="description" content="NgeventYuk by Farid Ahmad Fadhilah">
   <meta name="author" content="Farid Ahmad Fadhilah">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Ruang Cerita</title>
+  <title>NgeventYuk</title>
   <!-- Favicon -->
   <link rel="icon" href="{{ asset('assets/img/brand/favicon.png') }}" type="image/png">
   <!-- Fonts -->
@@ -22,7 +22,6 @@
         50%  {background-color: blue;}
         100% {background-color: green;}
     }
-
   </style>
   <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
@@ -65,7 +64,7 @@
   </script>
 </head>
 
-<body style="background-color: #fff">
+<body style="background-color: var(--dark-navy)">
 
   <!-- Main content -->
   <div class="main-content" id="panel">
@@ -80,33 +79,21 @@
 
       <section class="container">
         <div class="p-3 position-relative">
-          <div class="position-absolute left-0 top-0" style="z-index: 1;">
+          {{-- <div class="position-absolute left-0 top-0" style="z-index: 1;">
             <img class="jedag-jedug" src="{{ asset('assets/img/theme/question-2.png') }}" style="object-fit: cover; height: 50px; width: 100%" alt="" srcset="">
-          </div>
+          </div> --}}
           <div class="card card-new">
             <div class="card-body">
-              <h1 class="font-lora font-weight-bold tracking-wide text-center">Bagaimana Caranya?</h1>
+              <h1 class="font-lora font-weight-bold tracking-wide text-center">Why Choose NgeventYuk?</h1>
               <div class="row justify-content-around mt-3">
-                <div class="col-3" data-aos="fade-right" data-aos-duration="800">
-                  <img src="{{ asset('assets/img/icons/calendar.png')}}" style="width: 80px; object-fit: cover">
-                  <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">Sapaan Harian</h3>
-                  <p class="leading-relaxed tracking-wide font-lora text-justify">
-                    Setiap hari, kamu akan ditemani 10 pertanyaan ringan untuk membantumu memulai cerita.
-                  </p>
+                <div class="col-12" data-aos="fade-right" data-aos-duration="800">
+                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">🎟️ Tiket Resmi & Cepat</h1>
                 </div>
-                <div class="col-3" data-aos="fade-up" data-aos-duration="800">
-                  <img src="{{ asset('assets/img/icons/chat.png')}}" style="width: 80px; object-fit: cover">
-                  <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">Tuang Isi Hati</h3>
-                  <p class="leading-relaxed tracking-wide font-lora text-justify">
-                    Ceritamu adalah milikmu seutuhnya. Kami menjaga privasimu dengan serius. Ruang hatimu aman bersama kami.
-                  </p>
+                <div class="col-12" data-aos="fade-up" data-aos-duration="800">
+                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">🔒 Pembayaran Aman</h1>
                 </div>
-                <div class="col-3" data-aos="fade-left" data-aos-duration="800">
-                  <img src="{{ asset('assets/img/icons/idea.png')}}" style="width: 80px; object-fit: cover">
-                  <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">Temukan Pola Perasaanmu</h3>
-                  <p class="leading-relaxed tracking-wide font-lora text-justify">
-                    Dapatkan kesimpulan hangat tentang perasaanmu dan lihat bagaimana mood-mu bertumbuh dari waktu ke waktu.
-                  </p>
+                <div class="col-12" data-aos="fade-left" data-aos-duration="800">
+                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">📲 Tiket Digital (QR Code)</h1>
                 </div>
               </div>
             </div>
@@ -220,20 +207,20 @@
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
     AOS.init();
-    var typed = new Typed('.hero-title', {
-      strings: ['Ada hari yang rasanya berat untuk dilewati sendirian?'],
-      typeSpeed: 50,
-      onComplete: function(self) {
-        $('.typed-cursor.typed-cursor--blink').hide()
-        new Typed('.hero-subtitle', {
-          strings: ['Ruang Cerita adalah ruang aman untuk membantumu mengurai pikiran dan memahami perasaan.'],
-          typeSpeed: 50,
-          onComplete: function(){
-            $('.typed-cursor.typed-cursor--blink').hide()
-          }
-        });
-      }
-    });
+    // var typed = new Typed('.hero-title', {
+    //   strings: ['Temukan & Beli Tiket Konser Favoritmu 🚀'],
+    //   typeSpeed: 50,
+    //   onComplete: function(self) {
+    //     $('.typed-cursor.typed-cursor--blink').hide()
+    //     new Typed('.hero-subtitle', {
+    //       strings: ['Dari konser lokal sampai internasional, semua ada di NgeventYuk.'],
+    //       typeSpeed: 50,
+    //       onComplete: function(){
+    //         $('.typed-cursor.typed-cursor--blink').hide()
+    //       }
+    //     });
+    //   }
+    // });
 
   </script>
 </body>

@@ -1,8 +1,8 @@
 
 
-<nav class="navbar navbar-horizontal navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark" style="background: #190847">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href="#"><img src="{{ asset('assets/img/icons/ruang-cerita.png') }}" class="navbar-brand-img" alt="..." style="width: 100%;scale:2;object-fit:contain;"></a>
+    <a class="navbar-brand font-weight-bold" href="#"><img src="{{ asset('assets/img/brand/logo_text.png') }}" class="navbar-brand-img" alt="..." style="width: 100%;scale:2;object-fit:contain;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -51,12 +51,12 @@
           </li>
         @else
           <li class="nav-item">
-            <a class="nav-link nav-link-icon font-weight-bold" href="{{ route('auth.login') }}">
+            <a class="nav-link nav-link-icon font-weight-bold" style="color: #ec28f6" href="{{ route('auth.login') }}">
               Login
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-icon font-weight-bold" href="{{ route('auth.register') }}">
+            <a class="nav-link nav-link-icon font-weight-bold" style="color: #ec28f6" href="{{ route('auth.register') }}">
               Register
             </a>
           </li>

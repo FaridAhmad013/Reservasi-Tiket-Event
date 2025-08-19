@@ -1,3 +1,16 @@
+:root{
+  /* primary */
+  --neon-cyan: #00FFFF;
+  --magenta-pink: #FF00FF;
+  --electric-purple: #8A2BE2;
+  /* secondary */
+  --cyber-yellow: #FFD700;
+  --acid-green: #39FF14;
+  /* Base Colors */
+  --dark-navy: #0A0F1F;
+  --charcoal-gray: #1A1A1A;
+  --off-white: #E5E5E5;
+}
 .wizard-form {
     padding-right: 30px;
 }
