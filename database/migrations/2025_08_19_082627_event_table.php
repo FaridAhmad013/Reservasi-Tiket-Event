@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->id();
             $table->string('nama_event');
-            $table->longText('deskripsi');
+            $table->text('deskripsi');
             $table->unsignedTinyInteger('waktu_event');
             $table->json('gambar');
             $table->timestamp('created_at');
