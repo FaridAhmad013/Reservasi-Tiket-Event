@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="scroll-behavior: smooth;">
 
 <head>
   <meta charset="utf-8">
@@ -17,11 +17,25 @@
   <!-- Page plugins -->
   <style>
     @keyframes example {
-        0%   {background-color: red;}
-        25%  {background-color: yellow;}
-        50%  {background-color: blue;}
-        100% {background-color: green;}
+      0%   {background-color: red;}
+      25%  {background-color: yellow;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
     }
+
+    .text-white{
+      color: var(--off-white);
+    }
+
+    .shadow-pink{
+      box-shadow: 0 0 15px var(--magenta-pink) !important;
+    }
+
+    .shadow-yellow{
+      box-shadow: 0 0 15px var(--cyber-yellow) !important;
+    }
+
+
   </style>
   <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
@@ -78,22 +92,37 @@
     <div class="container-fluid mt-3">
 
       <section class="container">
-        <div class="p-3 position-relative">
-          {{-- <div class="position-absolute left-0 top-0" style="z-index: 1;">
-            <img class="jedag-jedug" src="{{ asset('assets/img/theme/question-2.png') }}" style="object-fit: cover; height: 50px; width: 100%" alt="" srcset="">
-          </div> --}}
-          <div class="card card-new">
+        <div class="pt-5 px-3 position-relative">
+          <div class="card card-neon bg-transparent">
             <div class="card-body">
-              <h1 class="font-lora font-weight-bold tracking-wide text-center">Why Choose NgeventYuk?</h1>
-              <div class="row justify-content-around mt-3">
-                <div class="col-12" data-aos="fade-right" data-aos-duration="800">
-                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">🎟️ Tiket Resmi & Cepat</h1>
+              <h1 class="font-lora font-weight-bold tracking-wide text-center mt-3 mb-5 text-white">Why Choose <span style="color: var(--neon-cyan)">NgeventYuk</span>?</h1>
+              <div class="row justify-content-around mt-2">
+                <div class="col-12 col-md-4">
+                  <div class="card card-neon bg-transparent mt-3" data-aos="fade-right" data-aos-duration="800">
+                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">🎟️</div>
+                    <div class="card-body">
+                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Tiket Resmi & Cepat</h3>
+                      <p style="color: var(--gray-300)">100% tiket resmi, transaksi cepat, dan terpercaya.</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-12" data-aos="fade-up" data-aos-duration="800">
-                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">🔒 Pembayaran Aman</h1>
+                <div class="col-12 col-md-4">
+                  <div class="card card-neon bg-transparent" data-aos="fade-up" data-aos-duration="800">
+                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">🔒</div>
+                    <div class="card-body">
+                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Pembayaran Aman</h3>
+                      <p style="color: var(--gray-300)">Transaksi terenkripsi & mendukung berbagai metode pembayaran.</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-12" data-aos="fade-left" data-aos-duration="800">
-                  <h1 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold">📲 Tiket Digital (QR Code)</h1>
+                <div class="col-12 col-md-4">
+                  <div class="card card-neon bg-transparent mt-3" data-aos="fade-left" data-aos-duration="800">
+                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">📲</div>
+                    <div class="card-body">
+                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Tiket Digital (QR Code)</h3>
+                      <p style="color: var(--gray-300)">Langsung dapat e-ticket QR, cukup scan saat masuk venue.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,45 +130,43 @@
         </div>
       </section>
 
-      <section class="container">
+      <section class="container" id="events">
         <div class="p-3 position-relative">
-          <div class="position-absolute left-0 top-0" style="z-index: 1;">
-            <img src="{{ asset('assets/img/theme/lock.png') }}" class="zig-zag" style="object-fit: cover; height: 50px; width: 100%;" alt="" srcset="">
-          </div>
-          <div class="card card-new">
-            <h1 class="font-lora font-weight-bold tracking-wide text-center my-4">Ruang yang Benar-Benar Aman.</h1>
+          <div class="card card-neon shadow-pink bg-transparent">
+            <h1 class="font-lora font-weight-bold tracking-wide text-center my-4 text-white">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></h1>
             <div class="card-body">
               <div class="row mb-3">
-                <div class="col-md-4" data-aos="fade-right" data-aos-duration="800">
-                  <div class="card card-new overflow-hidden mt-4">
-                    <img class="card-img-top" src="{{ asset('assets/img/theme/chatingan.jpg') }}">
+                <div class="col-md-4 col-sm-6 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
+                  <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px var(--magenta-pink)">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                     <div class="card-body">
-                      <b class="card-title text-center d-block">Partner, Bukan Robot.</b>
-                      <p class="card-text text-justify leading-relaxed tracking-wide font-lora">
-                        AI kami dirancang untuk memahami nuansa perasaanmu. Ia belajar untuk menjadi pendengar yang lebih baik, bukan sekadar program penjawab.
-                      </p>
+                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                      <small>Jakarta • 12 Okt 2025</small>
+
+                      <button class="btn btn-block btn-gradient-magenta-purple mt-3" type="button">Beli Tiket</button>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
-                  <div class="card card-new overflow-hidden">
-                    <img class="card-img-top" src="{{ asset('assets/img/theme/personal-data-2.png') }}">
+                <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800">
+                  <div class="card card-neon bg-transparent overflow-hidden mt-4 shadow-yellow " >
+                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                     <div class="card-body">
-                      <b class="card-title text-center d-block">Privasi Adalah Janji.</b>
-                      <p class="card-text text-justify leading-relaxed tracking-wide font-lora">
-                        AI kami dirancang untuk memahami nuansa perasaanmu. Ia belajar untuk menjadi pendengar yang lebih baik, bukan sekadar program penjawab.
-                      </p>
+                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                      <small>Jakarta • 12 Okt 2025</small>
+
+                      <button class="btn btn-block btn-gradient-cyber-yellow mt-3" type="button">Beli Tiket</button>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-left" data-aos-duration="800">
-                  <div class="card card-new overflow-hidden mt-4">
-                    <img class="card-img-top" src="{{ asset('assets/img/theme/design(2).png') }}">
+
+                <div class="col-md-4 col-sm-6 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
+                  <div class="card card-neon bg-transparent overflow-hidden mt-4" >
+                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                     <div class="card-body">
-                      <b class="card-title text-center d-block mb-2">Desain yang Menenangkan</b>
-                      <p class="card-text text-justify leading-relaxed tracking-wide font-lora">
-                        Tidak ada notifikasi yang mengganggu, tidak ada fitur yang membingungkan. Semua dirancang untuk memberimu ketenangan.
-                      </p>
+                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                      <small>Jakarta • 12 Okt 2025</small>
+
+                      <button class="btn btn-block btn-gradient-cyan mt-3" type="button">Beli Tiket</button>
                     </div>
                   </div>
                 </div>
