@@ -89,40 +89,62 @@
       @include('pengguna.hero')
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt-3">
+    <div class="container-fluid">
 
       <section class="container">
         <div class="pt-5 px-3 position-relative">
-          <div class="card card-neon bg-transparent">
+          <div class="bg-transparent">
+
             <div class="card-body">
-              <h1 class="font-lora font-weight-bold tracking-wide text-center mt-3 mb-5 text-white">Why Choose <span style="color: var(--neon-cyan)">NgeventYuk</span>?</h1>
-              <div class="row justify-content-around mt-2">
-                <div class="col-12 col-md-4">
-                  <div class="card card-neon bg-transparent mt-3" data-aos="fade-right" data-aos-duration="800">
-                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">🎟️</div>
-                    <div class="card-body">
-                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Tiket Resmi & Cepat</h3>
-                      <p style="color: var(--gray-300)">100% tiket resmi, transaksi cepat, dan terpercaya.</p>
+              <div class="text-center text-white mb-5" style="font-size: 2rem; font-weight: bold">Why Choose <span style="color: var(--cyan-300);">Ngevent</span><span style="color: var(--magenta-pink)">Yuk</span></div>
+              <div class="row">
+                <div class="col">
+                  <div class="row justify-content-around">
+                    <div class="col-12 ">
+                      <div class="card card-neon bg-transparent" data-aos="fade-left" data-aos-duration="800">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div style="font-size: 3rem">🎟️</div>
+                            <div class="col">
+                              <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white ">Tiket Resmi & Cepat</h3>
+                              <p class="text-light">100% tiket resmi, transaksi cepat, dan terpercaya.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 ">
+                      <div class="card card-neon bg-transparent" data-aos="fade-left" data-aos-duration="800">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                           <div>
+                             <div style="font-size: 3rem">🔒</div>
+                           </div>
+                           <div class="col">
+                             <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white ">Pembayaran Aman</h3>
+                             <p class="text-light">Transaksi terenkripsi & mendukung berbagai metode pembayaran.</p>
+                           </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 ">
+                      <div class="card card-neon bg-transparent" data-aos="fade-left" data-aos-duration="800">
+                        <div class="card-body">
+                           <div class="row align-items-center">
+                            <div style="font-size: 3rem">📲</div>
+                            <div class="col">
+                              <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white ">Tiket Digital (QR Code)</h3>
+                              <p class="text-light">Langsung dapat e-ticket QR, cukup scan saat masuk venue.</p>
+                            </div>
+                           </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-4">
-                  <div class="card card-neon bg-transparent" data-aos="fade-up" data-aos-duration="800">
-                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">🔒</div>
-                    <div class="card-body">
-                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Pembayaran Aman</h3>
-                      <p style="color: var(--gray-300)">Transaksi terenkripsi & mendukung berbagai metode pembayaran.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-4">
-                  <div class="card card-neon bg-transparent mt-3" data-aos="fade-left" data-aos-duration="800">
-                    <div class="card-img-top text-center mt-3" style="font-size: 3rem">📲</div>
-                    <div class="card-body">
-                      <h3 class="leading-relaxed tracking-wide font-lora my-2 font-weight-bold text-white text-center">Tiket Digital (QR Code)</h3>
-                      <p style="color: var(--gray-300)">Langsung dapat e-ticket QR, cukup scan saat masuk venue.</p>
-                    </div>
-                  </div>
+                <div class="col">
+                  <img src="{{ asset('assets/img/theme/why_choose.png') }}" alt="">
                 </div>
               </div>
             </div>
@@ -132,41 +154,47 @@
 
       <section class="container" id="events">
         <div class="p-3 position-relative">
-          <div class="card card-neon shadow-pink bg-transparent">
-            <h1 class="font-lora font-weight-bold tracking-wide text-center my-4 text-white">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></h1>
-            <div class="card-body">
-              <div class="row mb-3">
-                <div class="col-md-4 col-sm-6 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
-                  <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px var(--magenta-pink)">
-                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
-                    <div class="card-body">
-                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                      <small>Jakarta • 12 Okt 2025</small>
+          <div class="bg-transparent">
+            <div class="card-body position-relative">
+              <div class="position-absolute left-0 top-0">
+                <img src="{{ asset('assets/img/theme/hot_events1.png') }}" alt="">
+              </div>
+              <div class="d-flex justify-content-end mt-5">
+                <div class="col-9">
+                  <div class="text-center text-white" style="font-size: 2rem; font-weight: bold">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></div>
+                  <div class="row justify-content-center mt-3">
+                    <div class="col-sm-6 col-md-4 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
+                      <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px var(--magenta-pink)">
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <div class="card-body">
+                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                          <small>Jakarta • 12 Okt 2025</small>
 
-                      <button class="btn btn-block btn-gradient-magenta-purple mt-3" type="button">Beli Tiket</button>
+                          <button class="btn btn-block btn-gradient-magenta-purple mt-3" type="button">Beli Tiket</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800">
-                  <div class="card card-neon bg-transparent overflow-hidden mt-4 shadow-yellow " >
-                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
-                    <div class="card-body">
-                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                      <small>Jakarta • 12 Okt 2025</small>
+                    <div class="col-sm-6 col-md-4 col-12" data-aos="fade-up" data-aos-duration="800">
+                      <div class="card card-neon bg-transparent overflow-hidden mt-4 shadow-yellow " >
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <div class="card-body">
+                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                          <small>Jakarta • 12 Okt 2025</small>
 
-                      <button class="btn btn-block btn-gradient-cyber-yellow mt-3" type="button">Beli Tiket</button>
+                          <button class="btn btn-block btn-gradient-cyber-yellow mt-3" type="button">Beli Tiket</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div class="col-md-4 col-sm-6 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
-                  <div class="card card-neon bg-transparent overflow-hidden mt-4" >
-                    <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
-                    <div class="card-body">
-                      <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                      <small>Jakarta • 12 Okt 2025</small>
-
-                      <button class="btn btn-block btn-gradient-cyan mt-3" type="button">Beli Tiket</button>
+                    <div class="col-sm-6 col-md-4 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
+                      <div class="card card-neon bg-transparent overflow-hidden mt-4" >
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <div class="card-body">
+                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
+                          <small>Jakarta • 12 Okt 2025</small>
+                          <button class="btn btn-block btn-gradient-cyan mt-3" type="button">Beli Tiket</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

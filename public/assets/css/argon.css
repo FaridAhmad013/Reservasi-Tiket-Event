@@ -21820,17 +21820,7 @@ textarea[resize='horizontal']
     border-radius: .375rem;
     background: #f6f9fc;
 } */
-.navbar-vertical.navbar-expand-xs .navbar-nav > .nav-item > .nav-link.active
-{
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    border-radius: 0.375rem;
-    background: #bfb2ed;
-    color: white;
-    font-weight: bold;
-}
+
 .navbar-vertical.navbar-expand-xs .lavalamp-object
 {
     width: calc(100% - 1rem) !important;

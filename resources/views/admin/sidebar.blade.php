@@ -1,10 +1,10 @@
-<nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+<nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light" id="sidenav-main" style="background-color: #0D0D2B">
 
   <div class="scrollbar-inner">
     <!-- Brand -->
     <div class="sidenav-header d-flex align-items-center">
       <a class="navbar-brand" style="flex:1" href="{{ route('dashboard.index') }}">
-        <img src="{{ asset('assets/img/icons/ruang-cerita.png') }}" class="navbar-brand-img" alt="..." style="width: 100%;scale:2;object-fit:contain;">
+        <img src="{{ asset('assets/img/brand/logo_text.png') }}" class="navbar-brand-img" alt="..." style="width: 100%;scale:2;object-fit:contain;">
       </a>
       <div class="ml-auto">
         <!-- Sidenav toggler -->
