@@ -77,9 +77,7 @@
 
 <script>
   let _url = {
-    check_menulis_jurnal: `{{ route('dashboard.check_menulis_jurnal') }}`,
-    get_kalender_progress: `{{ route('dashboard.get_kalender_progress') }}`,
-    jejak_ceritamu: `{{ route('dashboard.get_jejak_ceritamu') }}`
+
   }
 
   $(() => {

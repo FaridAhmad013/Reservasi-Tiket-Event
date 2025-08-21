@@ -133,10 +133,7 @@
 @section('scripts')
 <script>
   let _url = {
-    total_pengguna: `{{ route('dashboard.total_pengguna') }}`,
-    total_pertanyaan: `{{ route('dashboard.total_pertanyaan') }}`,
-    total_entry_jurnal_hari_ini: `{{ route('dashboard.total_entry_jurnal_hari_ini') }}`,
-    total_pengguna_aktif: `{{ route('dashboard.total_pengguna_aktif') }}`,
+
   }
   $(document).ready(function() {
     get_total_pengguna()

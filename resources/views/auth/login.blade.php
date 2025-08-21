@@ -1,30 +1,30 @@
 @extends('auth.parent')
 
 @section('content')
-  <div class="row justify-content-end align-items-center" style="height: 100vh">
-    <div class="col-md-4 p-3" style="margin-right: 3rem">
-      <div class="card" style="background: rgba(255, 255, 255, 0.31)">
+  <div class="row justify-content-center align-items-center" style="height: 100vh">
+    <div class="col-md-4">
+      <div class="card card-neon bg-transparent mt-5">
         <div class="card-body">
-          <h1 class="text-center mb-3 font-lora" style="font-size: 2rem; font-weight: bold; color: white">Ruang Cerita</h1>
-          <hr>
-          <h4>Sign in to account</h4>
-          <p>Enter your username & password to login</p>
-          <div id="response_container"></div>
+          <div class="text-center" style="color: var(--cyan-300); font-size: 2rem; font-weight: bold">Ngevent<span style="color: var(--magenta-pink)">Yuk</span></div>
+          <div class="text-center text-light text-sm">Masuk ke akunmu</div>
+          <div id="response_container" class="my-3"></div>
           <form action="{{ route('auth.login_process') }}" method="post" id="myForm">
             @csrf
 
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" name="username" id="username" class="form-control" autocomplete="off">
+              <label for="username" class="text-white">Username</label>
+              <input type="text" name="username" id="username" class="form-control bg-dark border-dark text-light" autocomplete="off">
             </div>
             <div class="form-group">
-              <label for="username">Password</label>
-              <input type="password" name="password" id="password" class="form-control" autocomplete="off">
+              <label for="username" class="text-white">Password</label>
+              <input type="password" name="password" id="password" class="form-control bg-dark border-dark text-light" autocomplete="off">
             </div>
-            <button type="button" class="btn btn-default btn-block" id="btn-submit" onclick="save()">Login</button>
+            <div class="form-group mt-5 mb-3">
+              <button type="button" class="btn btn-block btn-gradient-cyan-magenta" id="btn-submit" onclick="save()">Login</button>
+            </div>
           </form>
-          <div class="form-group mt-3">
-            <a href="{{ route('auth.register') }}" class="text-dark font-weight-bold">Belum Punya Akun?</a>
+          <div class="form-group">
+            <span class="text-light">Belum Punya Akun?</span> <a href="{{ route('auth.register') }}" style="color: var(--cyan-300)" >Daftar Sekarang</a>
           </div>
         </div>
       </div>

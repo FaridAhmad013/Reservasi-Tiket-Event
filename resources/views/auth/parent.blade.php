@@ -7,7 +7,7 @@
   <meta name="description" content="Ruang Cerita by Farid Ahmad Fadhilah">
   <meta name="author" content="Farid Ahmad Fadhilah">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Ruang Cerita</title>
+  <title>NgeventYuk</title>
   <!-- Favicon -->
   <link rel="icon" href="{{ asset('assets/img/brand/favicon.png') }}" type="image/png">
   <!-- Fonts -->
@@ -15,9 +15,6 @@
   <link rel="stylesheet" href="{{ asset('assets/vendor/nucleo/css/nucleo.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
   <!-- Page plugins -->
-  <style>
-
-  </style>
   <link rel="stylesheet" href="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}">
   <!-- Custom css -->
   <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
@@ -38,12 +35,18 @@
   @if(config('app.debug') == false)
     @laravelPWA
   @endif
+
+  <style>
+    .text-white{
+      color: var(--off-white)
+    }
+  </style>
   <script>
     var base_url = "{{ url('').'/' }}"
   </script>
 </head>
 
-<body style="overflow-x: hidden; overflow-y: auto; background-image: url('{{ asset('assets/img/theme/wallpaper-4.jpg') }}'); background-position: center bottom; background-size: cover; width: 100vw;">
+<body style="background-color: var(--dark-navy)">
 
   <!-- Main content -->
   <div class="main-content" id="panel">

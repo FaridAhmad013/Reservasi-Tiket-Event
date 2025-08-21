@@ -1,6 +1,7 @@
 :root{
   /* primary */
   --neon-cyan: #00FFFF;
+  --cyan-300: #00d3f2;
   --magenta-pink: #FF00FF;
   --electric-purple: #8A2BE2;
   /* secondary */
@@ -12,6 +13,19 @@
   --off-white: #E5E5E5;
 
   --gray-300: #D4D4D8;
+}
+
+.btn-gradient-cyan-magenta{
+  background: linear-gradient(360deg,rgba(0, 255, 255, 1) 0%, rgba(138, 43, 226, 1) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 0 15px var(--cyan-300);
+  color: var(--off-white);
+}
+
+.btn-gradient-cyan-magenta:hover{
+  box-shadow: 0 0 15px var(--cyan-300);
+  color: var(--off-white);
 }
 
 .btn-gradient-magenta-cyan{
