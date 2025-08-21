@@ -168,7 +168,7 @@
                         <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small>Jakarta • 12 Okt 2025</small>
+                          <small class="text-light">Jakarta • 12 Okt 2025</small>
 
                           <button class="btn btn-block btn-gradient-magenta-purple mt-3" type="button">Beli Tiket</button>
                         </div>
@@ -179,7 +179,7 @@
                         <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small>Jakarta • 12 Okt 2025</small>
+                          <small class="text-light">Jakarta • 12 Okt 2025</small>
 
                           <button class="btn btn-block btn-gradient-cyber-yellow mt-3" type="button">Beli Tiket</button>
                         </div>
@@ -191,7 +191,7 @@
                         <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small>Jakarta • 12 Okt 2025</small>
+                          <small class="text-light">Jakarta • 12 Okt 2025</small>
                           <button class="btn btn-block btn-gradient-cyan mt-3" type="button">Beli Tiket</button>
                         </div>
                       </div>
