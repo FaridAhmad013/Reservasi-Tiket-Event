@@ -87,6 +87,9 @@
 
     <div class="position-relative">
       @include('pengguna.hero')
+      <div style="position: absolute; border-radius: inherit; inset: 0px;">
+        <img decoding="async" loading="lazy" width="1200" height="630" sizes="min(100vw, 1200px)" src="{{ asset('assets/img/theme/wallpaper.png') }}" alt="" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: fill;">
+      </div>
     </div>
     <!-- Page content -->
     <div class="container-fluid">
@@ -96,7 +99,7 @@
           <div class="bg-transparent">
 
             <div class="card-body">
-              <div class="text-center text-white mb-5" style="font-size: 2rem; font-weight: bold">Why Choose <span style="color: var(--cyan-300);">Ngevent</span><span style="color: var(--magenta-pink)">Yuk</span></div>
+              <div class="text-center text-white mb-5" data-aos="zoom-in-down" style="font-size: 2rem; font-weight: bold">Why Choose <span style="color: var(--cyan-300);">Ngevent</span><span style="color: var(--magenta-pink)">Yuk</span></div>
               <div class="row">
                 <div class="col">
                   <div class="row justify-content-around">
@@ -143,8 +146,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <img src="{{ asset('assets/img/theme/why_choose.png') }}" alt="">
+                <div class="col d-none d-md-block">
+                  <img src="{{ asset('assets/img/theme/why_choose.png') }}" alt="" data-aos="fade-left">
                 </div>
               </div>
             </div>
@@ -156,16 +159,16 @@
         <div class="p-3 position-relative">
           <div class="bg-transparent">
             <div class="card-body position-relative">
-              <div class="position-absolute left-0 top-0">
+              <div class="position-absolute left-0 top-0 d-none d-md-block" data-aos="fade-right">
                 <img src="{{ asset('assets/img/theme/hot_events1.png') }}" alt="">
               </div>
               <div class="d-flex justify-content-end mt-5">
-                <div class="col-9">
-                  <div class="text-center text-white" style="font-size: 2rem; font-weight: bold">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></div>
+                <div class="col-12 col-md-9">
+                  <div class="text-center text-white" data-aos="zoom-in-down" style="font-size: 2rem; font-weight: bold">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></div>
                   <div class="row justify-content-center mt-3">
-                    <div class="col-sm-6 col-md-4 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
+                    <div class="col-md-4 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
                       <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px var(--magenta-pink)">
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
@@ -174,9 +177,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-4 col-12" data-aos="fade-up" data-aos-duration="800">
+                    <div class="col-md-4 col-12" data-aos="fade-up" data-aos-duration="800">
                       <div class="card card-neon bg-transparent overflow-hidden mt-4 shadow-yellow " >
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
@@ -186,9 +189,9 @@
                       </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-4 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
+                    <div class="col-md-4 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
                       <div class="card card-neon bg-transparent overflow-hidden mt-4" >
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 56)">
+                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
@@ -205,21 +208,7 @@
       </section>
     </div>
   </div>
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal_title"></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="modal_body"></div>
-        <div class="modal-footer" id="modal_footer"></div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Fab Button -->
   {{-- <button class="btn btn-fab btn-info" title="Panduan" onclick="Ryuna.helpModal(`{{ isset($help_key) ? $help_key: '' }}`)">
@@ -263,13 +252,13 @@
   <script>
     AOS.init();
     // var typed = new Typed('.hero-title', {
-    //   strings: ['Temukan & Beli Tiket Konser Favoritmu 🚀'],
+    //   strings: ['<span style="color:#00FFFF;">Temukan</span> & <span style="color:#FF00FF;">Beli Tiket</span> <span style="color:#FFD700;">Konser Favoritmu</span>'],
     //   typeSpeed: 50,
     //   onComplete: function(self) {
     //     $('.typed-cursor.typed-cursor--blink').hide()
     //     new Typed('.hero-subtitle', {
-    //       strings: ['Dari konser lokal sampai internasional, semua ada di NgeventYuk.'],
-    //       typeSpeed: 50,
+    //       strings: ['Dari konser lokal hingga internasional. Semua tiket resmi, cepat, dan praktis di NgeventYuk.'],
+    //       typeSpeed: 1,
     //       onComplete: function(){
     //         $('.typed-cursor.typed-cursor--blink').hide()
     //       }

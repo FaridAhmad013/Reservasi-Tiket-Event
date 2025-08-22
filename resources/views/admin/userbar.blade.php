@@ -19,16 +19,16 @@
     </div>
   </a>
 
-    <div class="dropdown-menu dropdown-menu-right">
+  <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
     <div class="dropdown-header noti-title">
-      <h6 class="text-overflow m-0">Selamat Datang!</h6>
+      <h6 class="text-overflow m-0 text-white">Selamat Datang!</h6>
     </div>
-    <a href="{{ route('profile.index') }}" class="dropdown-item">
+    <a href="{{ route('profile.index') }}" class="dropdown-item text-white">
       <i class="ni ni-single-02"></i>
       <span>Profile Saya</span>
     </a>
     <div class="dropdown-divider"></div>
-    <a href="{{ route('auth.logout') }}" class="dropdown-item">
+    <a href="{{ route('auth.logout') }}" class="dropdown-item text-white">
       <i class="fas fa-sign-out-alt"></i>
       <span>Logout</span>
     </a>

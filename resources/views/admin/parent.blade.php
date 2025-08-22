@@ -54,14 +54,14 @@
   </script>
 </head>
 
-<body style="background-color: rgb(243 244 246)">
+<body style="background-color: var(--dark-navy)">
 
   <!-- Sidenav -->
   @include('admin.sidebar')
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Header -->
-    <div class="position-relative" style="background: linear-gradient(135deg, #2E026D, #15162C)">
+    <div class="position-relative">
       @include('admin.navbar')
       @php
       $auth = @\App\Helpers\AuthCommon::user();
@@ -87,11 +87,11 @@
   <!-- The Modal -->
   <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content bg-default text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_title"></h5>
+          <h5 class="modal-title text-white" id="modal_title"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span class="text-white" aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body" id="modal_body"></div>

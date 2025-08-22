@@ -24,7 +24,7 @@ class Menu
         if (is_array($assign) && in_array(AuthCommon::user()->role->role, $assign)) {
             $this->html .= '<li class="nav-item">
                 <a class="nav-link ' . ($isActive ? 'active' : '') . '" href="' . url($url) . '">
-                    <i class="' . $icon . ' text-light"></i>
+                    <i class="' . $icon . ' text-white"></i>
                     <span class="nav-link-text text-light">' . $title . '</span>
                 </a>
             </li>';

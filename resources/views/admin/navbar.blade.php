@@ -13,7 +13,7 @@
 
 </style>
 
-<nav class="navbar navbar-top navbar-expand" style="background: transparent;">
+<nav class="navbar navbar-top navbar-expand" style="background: #0D0D2B;">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Search form -->
