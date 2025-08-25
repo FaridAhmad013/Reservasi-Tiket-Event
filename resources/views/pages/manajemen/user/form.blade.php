@@ -2,13 +2,13 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="nama_depan">Nama Depan</label>
-      <input type="text" name="nama_depan" id="nama_depan" class="form-control" value="{{ @$data->nama_depan }}" autocomplete="off">
+      <input type="text" name="nama_depan" id="nama_depan" class="form-control bg-dark border-dark" value="{{ @$data->nama_depan }}" autocomplete="off">
     </div>
   </div>
   <div class="col-md-6">
     <div class="form-group">
       <label for="nama_belakang">Nama Belakang</label>
-      <input type="text" name="nama_belakang" id="nama_belakang" class="form-control" value="{{ @$data->nama_belakang }}" autocomplete="off">
+      <input type="text" name="nama_belakang" id="nama_belakang" class="form-control bg-dark border-dark" value="{{ @$data->nama_belakang }}" autocomplete="off">
     </div>
   </div>
 </div>
@@ -16,31 +16,31 @@
 @if (!@$data)
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" name="username" id="username" class="form-control" autocomplete="off">
+    <input type="text" name="username" id="username" class="form-control bg-dark border-dark" autocomplete="off">
   </div>
 @endif
 
 
 <div class="form-group">
   <label for="email">Email</label>
-  <input type="email" name="email" id="email" class="form-control" autocomplete="off" value="{{ @$data->email }}">
+  <input type="email" name="email" id="email" class="form-control bg-dark border-dark" autocomplete="off" value="{{ @$data->email }}">
 </div>
 
 @if (!@$data)
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="password" id="password" class="form-control" autocomplete="off" value="{{ @$data->password }}">
+    <input type="password" name="password" id="password" class="form-control bg-dark border-dark" autocomplete="off" value="{{ @$data->password }}">
   </div>
 
   <div class="form-group">
     <label for="password_confirmation">Ulangi Password</label>
-    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" autocomplete="off" value="{{ @$data->password }}">
+    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control bg-dark border-dark" autocomplete="off" value="{{ @$data->password }}">
   </div>
 @endif
 
 <div class="form-group">
   <label for="select2-role">Role</label>
-  <select name="role_id" id="select2-role" class="form-control">
+  <select name="role_id" id="select2-role" class="form-control bg-dark border-dark">
     @isset($data)
       <option value="{{ $data->role->id }}">{{ $data->role->role }}</option>
     @endisset

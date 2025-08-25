@@ -25,12 +25,12 @@
 @section('page')
 <div class="row">
   <div class="col-xl-12 order-xl-1">
-    <div class="card">
+    <div class="card" style="background: #1E1E2F; box-shadow: none; border: none">
       <div class="card-body" id="box-aw">
         @include('admin.alert')
         <div class="table-responsive py-2">
           <table class="table align-items-center table-flush dt-wow" style="width: 100% !important;">
-            <thead class="thead-light">
+            <thead class="thead-dark">
               <tr>
                 <th>Aksi</th>
                 <th>Role</th>
@@ -74,7 +74,7 @@
         text: 'Column',
         titleAttr: 'Column',
         tag: "button",
-        className: ""
+        className: "btn-default"
       }
     ];
 
@@ -83,27 +83,28 @@
       text: '<i class="fas fa-file-pdf"></i>',
       titleAttr: 'pdf',
       tag: "button",
-      className: ""
+      className: "btn-default"
     },
     {
       extend: 'csv',
       text: '<i class="fas fa-file-csv"></i>',
       titleAttr: 'csv',
       tag: "button",
-      className: ""
+      className: "btn-default"
     },
     {
       extend: 'excelHtml5',
       text: '<i class="fas fa-file-excel"></i>',
       titleAttr: 'excel',
       tag: "button",
-      className: ""
+      className: "btn-default"
     })
 
 
     dt_buttons.unshift( {
       text: '<i class="fas fa-plus"></i> Tambah',
       attr: { id: 'create' },
+      className: "btn-default",
       action: function(e, dt, node, config ) {
         create()
       }
@@ -115,7 +116,7 @@
         infoFiltered: ``
       },
       dom: "<'row'<'col-sm-6'B><'col-sm-3'f><'col-sm-3'l>> <'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
-      order: [[1, 'asc']],
+      order: [[4, 'asc']],
       buttons: dt_buttons,
       processing: true,
       serverSide: true,

@@ -87,7 +87,7 @@
   <!-- The Modal -->
   <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1"  >
     <div class="modal-dialog modal-lg">
-      <div class="modal-content bg-default text-white">
+      <div class="modal-content text-white" style="border: 2px solid rgba(58, 64, 96, 0.6); background: oklch(27.8% 0.033 256.848)">
         <div class="modal-header">
           <h5 class="modal-title text-white" id="modal_title"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

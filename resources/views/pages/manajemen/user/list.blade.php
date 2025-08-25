@@ -120,7 +120,7 @@
         infoFiltered: ``
       },
       dom: "<'row'<'col-sm-6'B><'col-sm-3'f><'col-sm-3'l>> <'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
-      order: [[1, 'asc']],
+      order: [[7, 'asc']],
       buttons: dt_buttons,
       processing: true,
       serverSide: true,

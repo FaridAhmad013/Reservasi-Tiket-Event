@@ -13,11 +13,11 @@
 
             <div class="form-group">
               <label for="username" class="text-white">Username</label>
-              <input type="text" name="username" id="username" class="form-control bg-dark border-dark text-light" autocomplete="off">
+              <input type="text" name="username" id="username" class="form-control bg-dark" autocomplete="off">
             </div>
             <div class="form-group">
               <label for="username" class="text-white">Password</label>
-              <input type="password" name="password" id="password" class="form-control bg-dark border-dark text-light" autocomplete="off">
+              <input type="password" name="password" id="password" class="form-control bg-dark" autocomplete="off">
             </div>
             <div class="form-group mt-5 mb-3">
               <button type="button" class="btn btn-block btn-gradient-cyan-magenta" id="btn-submit" onclick="save()">Login</button>
