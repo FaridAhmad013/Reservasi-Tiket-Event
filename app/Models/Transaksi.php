@@ -20,7 +20,7 @@ class Transaksi extends Model
 
     public function detailEvent()
     {
-        return $this->belongsTo(DetailEventModel::class);
+        return $this->belongsTo(DetailEvent::class);
     }
 
     public function user()

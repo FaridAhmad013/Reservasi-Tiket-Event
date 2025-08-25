@@ -17,11 +17,11 @@ class DetailEvent extends Model
 
     public function event()
     {
-        return $this->belongsTo(EventModel::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function transaksis()
     {
-        return $this->hasMany(TransaksiModel::class);
+        return $this->hasMany(Transaksi::class);
     }
 }
