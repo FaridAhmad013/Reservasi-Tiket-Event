@@ -173,7 +173,8 @@
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
 
-                          <button class="btn btn-block btn-gradient-magenta-purple mt-3" type="button">Beli Tiket</button>
+                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
+                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
                         </div>
                       </div>
                     </div>
@@ -184,7 +185,8 @@
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
 
-                          <button class="btn btn-block btn-gradient-cyber-yellow mt-3" type="button">Beli Tiket</button>
+                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
+                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
                         </div>
                       </div>
                     </div>
@@ -195,7 +197,9 @@
                         <div class="card-body">
                           <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
                           <small class="text-light">Jakarta • 12 Okt 2025</small>
-                          <button class="btn btn-block btn-gradient-cyan mt-3" type="button">Beli Tiket</button>
+
+                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
+                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
                         </div>
                       </div>
                     </div>
