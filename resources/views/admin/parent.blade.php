@@ -44,7 +44,11 @@
 
   {{-- Noty --}}
   <link href="{{ asset('assets/vendor/noty/noty.css') }}" rel="stylesheet">
+
+
   <link href="{{ asset('fonts/lexend_deca.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/cropper.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/viewer.min.css') }}">
   {{-- check app debug false --}}
   @if(config('app.debug') == false)
     @laravelPWA
@@ -154,8 +158,13 @@
   <script src="{{ asset('assets/js/argon.js?v=1.1.0') }}"></script>
     <!-- Demo JS - remove this in your project -->
   <script src="{{ asset('assets/js/demo.min.js') }}"></script>
+  <script src="{{ asset('js/cropper.min.js') }}"></script>
+
   {{-- Global js --}}
   <script src="{{ asset('js/global.js') }}"></script>
+  <script src="{{ asset('js/viewer/viewer.min.js')}}"></script>
+  <script src="{{ asset('js/viewer/viewer.js')}}"></script>
+
   @yield('scripts')
   <script>
     $('.dt_table thead').addClass('thead-light');

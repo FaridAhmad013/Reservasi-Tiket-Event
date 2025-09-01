@@ -2,7 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Models\Pertanyaan;
+use App\Helpers\AuthCommon;
+use App\Helpers\ConstantUtility;
+use App\Helpers\Util;
+use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -11,7 +14,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class PertanyaanDataTable extends DataTable
+class EventDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -27,18 +30,26 @@ class PertanyaanDataTable extends DataTable
                 $html = '<div class="btn-group btn-group-sm" branch="group">';
                 $html .= '<button onclick="edit('.$data->id.')" type="button" class="btn btn-sm btn-default" title="Ubah"><i class="fas fa-pen"></i></button>';
                 $html .= '<button onclick="destroy('.$data->id.')" type="button" class="btn btn-sm btn-default" title="Hapus"><i class="fas fa-trash"></i></button>';
+                $html .= '<button onclick="detail_event('.$data->id.')" type="button" class="btn btn-sm btn-default" title="Detail Event"><i class="fas fa-cog"></i></button>';
                 $html .= '</div>';
                 return $html;
             })
-            ->editColumn('pertanyaan', function($item){
-                return '<a href="javascript:show('.$item->id.')">'.$item->pertanyaan.'</a>';
+            ->editColumn('foto', function($item){
+                return '<a href="javascript:show_gambar('.$item->id.')" class="btn btn-sm btn-success"><i class="fas fa-camera"></i> Lihat Gambar</a>';
             })
-            ->addColumn('kategori_pertanyaan', function ($item) {
-                $kategori_pertanyaan = $item->kategori_pertanyaan;
-                if ($kategori_pertanyaan) {
-                    return $kategori_pertanyaan->kategori;
+            ->editColumn('waktu_event', function ($data) {
+                if ($data->waktu_event) {
+                    return Carbon::parse($data->waktu_event)->format('d-m-Y H:i:s');
                 }
                 return '';
+            })
+            ->addColumn('lokasi', function($item){
+                $html = '';
+                if($item->kordinat){
+                    $html .= '<a href="javascript:show_lokasi('.$item->id.')" class="mr-2" title="Lihat Lokasi"><i class="fas fa-map-marker-alt text-danger"></i></a>';
+                }
+                $html .= $item->lokasi;
+                return $html;
             })
             ->editColumn('created_at', function ($data) {
                 if ($data->created_at) {
@@ -52,18 +63,18 @@ class PertanyaanDataTable extends DataTable
                 }
                 return '';
             })
-            ->rawColumns(['aksi', 'pertanyaan']);
+            ->rawColumns(['aksi', 'foto', 'lokasi', 'status']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Pertanyaan $model
+     * @param \App\Models\Event $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Pertanyaan $model): QueryBuilder
+    public function query(Event $model): QueryBuilder
     {
-        return $model->newQuery()->with('kategori_pertanyaan');
+        return $model->newQuery();
     }
 
     /**
@@ -81,8 +92,10 @@ class PertanyaanDataTable extends DataTable
                 ->width(60)
                 ->orderable(false)
                 ->searchable(false),
-            Column::make('pertanyaan'),
-            Column::make('kategori_pertanyaan_id'),
+            Column::make('foto'),
+            Column::make('nama_event'),
+            Column::make('waktu_event'),
+            Column::make('lokasi'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
@@ -95,6 +108,6 @@ class PertanyaanDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Pertanyaan_' . date('YmdHis');
+        return 'Event_' . date('YmdHis');
     }
 }

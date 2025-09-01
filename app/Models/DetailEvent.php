@@ -13,6 +13,8 @@ class DetailEvent extends Model
         'jumlah_tiket',
         'status',
         'harga',
+        'dibuka_pada',
+        'ditutup_pada'
     ];
 
     public function event()

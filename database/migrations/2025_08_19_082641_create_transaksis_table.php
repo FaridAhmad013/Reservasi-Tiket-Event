@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('event_id')->constrained('event')->cascadeOnDelete();
-            $table->foreignId('detail_event_id')->constrained('detail_event')->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
+            $table->foreignId('detail_event_id')->constrained('detail_events')->cascadeOnDelete();
 
+            $table->string('nomor_transaksi')->unique();
             $table->json('bukti_transaksi');
-            $table->string('status_transaksi');
+            $table->string('status_transaksi'); //menunggu persetujuan, disetujui, ditolak, dibatalkan
 
             $table->timestamp('approved_at')->nullable();
             $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();

@@ -6,10 +6,13 @@ use App\Http\Middleware\RyunnaAuth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Manajamen\{RoleController, UserController};
+use App\Http\Controllers\Master\DetailEventController;
+use App\Http\Controllers\Master\EventController;
 use App\Http\Controllers\Master\KategoriPertanyaanController;
 use App\Http\Controllers\Master\PertanyaanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RuangCerita\ObrolanController;
+use App\Http\Controllers\UploadController;
 use App\Http\Middleware\RedirectResetPassword;
 
 /*
@@ -74,12 +77,29 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
     });
 
     Route::prefix('master')->group(function(){
+        Route::resources([
+            'event' => EventController::class,
+            'detail_event' => DetailEventController::class
+        ]);
 
+        Route::prefix('event')->group(function(){
+            Route::get('show_gambar/{id}', [EventController::class, 'show_gambar'])->name('event.show_gambar');
+            Route::get('show_lokasi/{id}', [EventController::class, 'show_lokasi'])->name('event.show_lokasi');
+        });
     });
+
+    Route::post('upload/image', [UploadController::class, 'image'])->name('upload.image');
+    Route::get('form_image_picker', [UploadController::class, 'form_image_picker'])->name('upload.form_image_picker');
+    Route::post('store_image_picker', [UploadController::class, 'store_image_picker'])->name('upload.store_image_picker');
+    Route::post('hapus_gambar', [UploadController::class, 'hapus_gambar'])->name('upload.hapus_gambar');
+    // Route::post('get_gambar_from_nextcloud', [UploadController::class, 'get_gambar_from_nextcloud'])->name('upload.get_gambar_from_nextcloud');
 
     Route::prefix('datatable')->group(function(){
         Route::post('user', [UserController::class, 'datatable'])->name('datatable.user');
         Route::post('role', [RoleController::class, 'datatable'])->name('datatable.role');
+        Route::post('event', [EventController::class, 'datatable'])->name('datatable.event');
+        Route::post('detail_event', [DetailEventController::class, 'datatable'])->name('datatable.detail_event');
+
     });
 
     Route::prefix('select2')->group(function(){

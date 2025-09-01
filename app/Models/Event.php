@@ -10,8 +10,9 @@ class Event extends Model
         'nama_event',
         'deskripsi',
         'waktu_event',
-        'lokasi_event',
-        'gambar',
+        'foto',
+        'kordinat',
+        'lokasi',
     ];
 
     public function detailEvents()

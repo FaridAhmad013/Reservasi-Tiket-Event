@@ -5,7 +5,8 @@ namespace App\DataTables;
 use App\Helpers\AuthCommon;
 use App\Helpers\ConstantUtility;
 use App\Helpers\Util;
-use App\Models\KategoriPertanyaan;
+use App\Models\DetailEvent;
+use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -14,7 +15,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class KategoriPertanyaanDataTable extends DataTable
+class DetailEventDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -33,8 +34,11 @@ class KategoriPertanyaanDataTable extends DataTable
                 $html .= '</div>';
                 return $html;
             })
-            ->editColumn('kategori', function($item){
-                return '<a href="javascript:show('.$item->id.')">'.$item->kategori.'</a>';
+            ->editColumn('status', function($data){
+                return Util::status_detail_event($data->status);
+            })
+            ->editColumn('harga', function($data){
+                return Util::rupiah(@$data->harga ?? 0);
             })
             ->editColumn('created_at', function ($data) {
                 if ($data->created_at) {
@@ -48,18 +52,18 @@ class KategoriPertanyaanDataTable extends DataTable
                 }
                 return '';
             })
-            ->rawColumns(['aksi', 'kategori']);
+            ->rawColumns(['aksi', 'status']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\KategoriPertanyaan $model
+     * @param \App\Models\DetailEvent $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(KategoriPertanyaan $model): QueryBuilder
+    public function query(DetailEvent $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('event');
     }
 
     /**
@@ -77,7 +81,10 @@ class KategoriPertanyaanDataTable extends DataTable
                 ->width(60)
                 ->orderable(false)
                 ->searchable(false),
-            Column::make('kategori'),
+            Column::make('area'),
+            Column::make('jumlah_tiket'),
+            Column::make('status'),
+            Column::make('harga'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
@@ -90,6 +97,6 @@ class KategoriPertanyaanDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'KategoriPertanyaan_' . date('YmdHis');
+        return 'DetailEvent_' . date('YmdHis');
     }
 }

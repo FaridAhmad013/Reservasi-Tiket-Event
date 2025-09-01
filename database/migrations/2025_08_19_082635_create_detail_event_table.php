@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detail_event', function (Blueprint $table) {
+        Schema::create('detail_events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained('event')->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
             $table->string('area');
-            $table->longText('deskripsi');
+            $table->text('deskripsi');
             $table->unsignedTinyInteger('jumlah_tiket');
-            $table->string('status');
+            $table->string('status'); //tersedia, habis, ditutup
+            $table->timestamp('dibuka_pada')->nullable();
+            $table->timestamp('ditutup_pada')->nullable();
             $table->integer('harga');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

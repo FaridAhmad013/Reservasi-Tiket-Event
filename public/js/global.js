@@ -362,6 +362,41 @@ class Ryuna {
 
     return `${hariText}, ${tgl} ${blnText} ${thn}`;
   }
+
+   static create_image_multiple(selector_id){
+    const clicked = imageViewer.createGallery(selector_id, {
+      url: 'src',
+      shown() {
+        console.log('Viewer is shown');
+      },
+      viewed(event) {
+        // This event fires when an image is viewed
+        const index = event.detail.index;
+        const image = event.detail.image;
+        const originalImage = event.detail.originalImage;
+
+        // Get custom data from the image
+        const imageInfo = originalImage.getAttribute('data-info');
+
+        // You can display custom overlays, add buttons, etc. here
+        const infoElement = document.createElement('div');
+        infoElement.className = 'image-info-overlay';
+        infoElement.style.position = 'absolute';
+        infoElement.style.bottom = '10px';
+        infoElement.style.left = '10px';
+        infoElement.style.background = 'rgba(0, 0, 0, 0.7)';
+        infoElement.style.color = 'white';
+        infoElement.style.padding = '5px 10px';
+        infoElement.style.borderRadius = '4px';
+        infoElement.textContent = imageInfo;
+
+        console.log(infoElement)
+        // Add the info element to the viewer container
+        const viewerContainer = clicked.viewer;
+        viewerContainer.appendChild(infoElement);
+      }
+    });
+  }
 }
 
 

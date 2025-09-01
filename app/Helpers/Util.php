@@ -81,15 +81,19 @@ class Util
     return $formattedErrors;
   }
 
-  public static function status($data)
+  public static function status_detail_event($data)
   {
     $html = '';
     switch ($data) {
-      case '1':
-        $html = '<span class="badge text-white bg-success">Aktif</span>';
+        //tersedia, habis, ditutup, segera hadir
+      case 'tersedia':
+        $html = '<span class="badge text-white bg-success">Tersedia</span>';
         break;
-      case '0':
-        $html = '<span class="badge text-white bg-danger">Tidak Aktif</span>';
+      case 'habis':
+        $html = '<span class="badge text-white bg-danger">habis</span>';
+        break;
+      case 'ditutup':
+        $html = '<span class="badge text-white bg-secondarys">ditutup</span>';
         break;
       default:
         $html = '';

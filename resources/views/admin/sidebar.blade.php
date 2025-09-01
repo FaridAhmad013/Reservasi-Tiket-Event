@@ -38,14 +38,13 @@
             ->item('Role', 'fas fa-building', 'admin/manajemen/role', Request::is('admin/manajemen/role'), ['Admin'])
             ->end_group();
 
-        // $obj_menu
-        //     ->divinder('Master', [
-        //         'Admin',
-        //     ])
-        //     ->start_group()
-        //     ->item('Kategori Pertanyaan', 'fas fa-th-large', 'admin/master/kategori_pertanyaan', Request::is('admin/master/kategori_pertanyaan'), ['Admin'])
-        //     ->item('Pertanyaan', 'fas fa-comments', 'admin/master/pertanyaan', Request::is('admin/master/pertanyaan'), ['Admin'])
-        //     ->end_group();
+        $obj_menu
+            ->divinder('Master', [
+                'Admin',
+            ])
+            ->start_group()
+            ->item('Event', 'fas fa-clipboard-list', 'admin/master/event', Request::is('admin/master/event', 'admin/master/detail_event'), ['Admin'])
+            ->end_group();
 
         // $obj_menu
         //     ->divinder('Ruang Cerita', [

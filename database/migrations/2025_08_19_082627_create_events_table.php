@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('nama_event');
             $table->text('deskripsi');
-            $table->unsignedTinyInteger('waktu_event');
-            $table->json('gambar');
-            $table->timestamp('created_at');
+            $table->timestamp('waktu_event');
+            $table->json('foto')->default(null);
+            $table->text('kordinat')->default(null);
+            $table->string('lokasi')->default(null);
+            $table->timestamps();
         });
     }
 
