@@ -64,6 +64,7 @@
   let _url = {
     get_list_pesanan: "{{ route($module.'.get_list_pesanan') }}",
     batalkan: "{{ route($module.'.batalkan', ':id') }}",
+    cetak_kartu: "{{ route($module.'.cetak_kartu', ':id') }}"
   }
 
   let table;
@@ -106,9 +107,9 @@
         status: status
     }).done((res) => {
       const data = res?.data ?? []
-      
+
       data.map(item => {
-        $('#wrap-list-pesanan').html(`
+        $('#wrap-list-pesanan').append(`
           <div class="card card-neon overflow-hidden mb-2" style="background-color: #1E1E2F !important;">
             <div class="card-header" style="background-color: #1E1E2F !important;">
               <span class="text-white">${item?.event?.nama_event}</span> - ${Ryuna.status_transaksi(item?.status_transaksi)} - <span class="text-white">${item.nomor_transaksi}</span>
@@ -128,6 +129,7 @@
             <div class="card-footer" style="background-color: #1E1E2F !important;">
               <div class="row justify-content-end">
                 ${item?.status_transaksi == 'menunggu persetujuan' ? `<button class="btn btn-danger" onclick="batalkan('${item.id}')" type="button">Batalkan</button>` : ''}
+                ${item?.status_transaksi == 'disetujui' ? `<button class="btn btn-primary" onclick="cetak_kartu('${item.id}')" type="button">Cetak Kartu</button>` : ''}
               </div>
             </div>
           </div>
@@ -162,6 +164,10 @@
         })
       }
     })
+  }
+
+  function cetak_kartu(id){
+    window.location.href = _url.cetak_kartu.replace(':id', id)
   }
   function show(id){
     Ryuna.blockUI()

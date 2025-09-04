@@ -9,12 +9,11 @@
 </div>
 
 <script>
-  var _target = `{{ route($module.'.action', ':id')."?status=:status" }}`
   function action(id, status){
     $('#response_container').empty();
     Ryuna.blockElement('.modal-content');
     let el_form = $('#myForm')
-    let target = _target.replace(':status', status).replace(':id', id)
+    let target = (status == 1 ? `{{ route($module.'.approve', ':id')."?status=:status" }}` : `{{ route($module.'.reject', ':id')."?status=:status" }}`).replace(':status', status).replace(':id', id)
     let otp = $('[name="otp"]').val()
 
     $.ajax({

@@ -76,7 +76,8 @@ class PesananPenggunaController extends Controller
     {
 
         try {
-            Transaksi::where('id', $id)->where('status_transaksi', 'menunggu_persetujuan')->update([
+
+            Transaksi::where('id', $id)->update([
                 'status_transaksi' => 'disetujui'
             ]);
 
@@ -94,7 +95,7 @@ class PesananPenggunaController extends Controller
     public function reject($id)
     {
          try {
-            Transaksi::where('id', $id)->where('status_transaksi', 'menunggu_persetujuan')->update([
+            Transaksi::where('id', $id)->update([
                 'status_transaksi' => 'ditolak'
             ]);
 
@@ -109,6 +110,7 @@ class PesananPenggunaController extends Controller
             ], 400);
         }
     }
+
 
     public function modal(Request $request){
         $status = $request->status;

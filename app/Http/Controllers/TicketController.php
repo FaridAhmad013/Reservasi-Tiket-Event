@@ -29,7 +29,9 @@ class TicketController extends Controller
 
         $detail_events = DetailEvent::where('event_id', $event->id)->get();
 
-        return view('pages.detailevent.detailevent', compact('event', 'detail_events'));
+        $user = AuthCommon::user() ?? null;
+
+        return view('pages.detailevent.detailevent', compact('event', 'detail_events', 'user'));
     }
 
     public function beli_ticket_form($id)
@@ -65,7 +67,7 @@ class TicketController extends Controller
 
             $title = '';
             $body = view('pages.detailevent.form_beli_tiket', compact('data', 'event'))->render();
-            $footer = '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button><button type="button" class="btn btn-primary" onclick="save()">Simpan</button>';
+            $footer = '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button><button type="button" class="btn btn-primary" onclick="save()">Pesan</button>';
         }
 
         return [

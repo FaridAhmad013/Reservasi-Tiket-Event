@@ -27,48 +27,49 @@
     color: var(--charcoal-gray) !important
   }
 </style>
+<div class="overflow-auto" style="height: 800px">
+    <div class="form-group">
+      <label for="nama_event">Nama Event</label>
+      <input type="text" name="nama_event" id="nama_event" value="" class="form-control bg-dark border-dark text-white" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="deskripsi">Deskripsi</label>
+      <textarea name="deskripsi" id="deskripsi" class="form-control bg-dark border-dark text-white" autocomplete="off"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="waktu_event">Waktu Event</label>
+      <input type="text" name="waktu_event" id="waktu_event" class="form-control bg-dark border-dark text-white" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <div class="d-flex justify-content-between">
+        <div class="mb-2">Gambar</div>
+        <button type="button" class="btn btn-success btn-sm" onclick="append_container_image_picker($(this).parent().parent().find('.grid').children().length)"> <i class="fas fa-plus"></i> </button>
+      </div>
 
-<div class="form-group">
-  <label for="nama_event">Nama Event</label>
-  <input type="text" name="nama_event" id="nama_event" value="" class="form-control bg-dark border-dark text-white" autocomplete="off">
+      <div class="grid" id="wrap-gambar_event">
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lokasi">Lokasi</label>
+      <input type="text" name="lokasi" id="lokasi" class="form-control bg-dark border-dark text-white" placeholder="Contoh: Sumatera Utara Main Stadium" autocomplete="off">
+    </div>
+
+    <div class="form-group">
+      <label for="kordinat">Kordinat</label>
+      <input type="text" name="kordinat" id="kordinat" class="form-control bg-dark border-dark text-white" placeholder="-6.917464, 107.619125" autocomplete="off">
+    </div>
+
+
+    <div class="position-relative overflow-hidden" id="wrap-map-0" style="width: 100%; height: auto">
+      <div id="map-0" style="width: 100%; height: 400px; display: flex; justify-content: center; align-items: center"></div>
+    </div>
+
+    <a href="https://www.google.com/maps?q=-6.917464,107.619125" target="_blank" class="btn btn-success mt-3">
+      <i class="fas fa-map-marker-alt"></i> Lihat dengan Google Maps
+    </a>
 </div>
-<div class="form-group">
-  <label for="deskripsi">Deskripsi</label>
-  <textarea name="deskripsi" id="deskripsi" class="form-control bg-dark border-dark text-white" autocomplete="off"></textarea>
-</div>
-<div class="form-group">
-  <label for="waktu_event">Waktu Event</label>
-  <input type="text" name="waktu_event" id="waktu_event" class="form-control bg-dark border-dark text-white" autocomplete="off">
-</div>
-<div class="form-group">
-  <div class="d-flex justify-content-between">
-    <div class="mb-2">Gambar</div>
-    <button type="button" class="btn btn-success btn-sm" onclick="append_container_image_picker($(this).parent().parent().find('.grid').children().length)"> <i class="fas fa-plus"></i> </button>
-  </div>
-
-  <div class="grid" id="wrap-gambar_event">
-
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="lokasi">Lokasi</label>
-  <input type="text" name="lokasi" id="lokasi" class="form-control bg-dark border-dark text-white" placeholder="Contoh: Sumatera Utara Main Stadium" autocomplete="off">
-</div>
-
-<div class="form-group">
-  <label for="kordinat">Kordinat</label>
-  <input type="text" name="kordinat" id="kordinat" class="form-control bg-dark border-dark text-white" placeholder="-6.917464, 107.619125" autocomplete="off">
-</div>
-
-
-<div class="position-relative overflow-hidden" id="wrap-map-0" style="width: 100%; height: auto">
-  <div id="map-0" style="width: 100%; height: 400px; display: flex; justify-content: center; align-items: center"></div>
-</div>
-
-<a href="https://www.google.com/maps?q=-6.917464,107.619125" target="_blank" class="btn btn-success mt-3">
-  <i class="fas fa-map-marker-alt"></i> Lihat dengan Google Maps
-</a>
 <script>
   $(() => {
     Ryuna.summernote('[name="deskripsi"]')

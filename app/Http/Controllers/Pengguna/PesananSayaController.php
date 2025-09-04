@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+
 
 class PesananSayaController extends Controller
 {
@@ -79,5 +83,11 @@ class PesananSayaController extends Controller
                 'message' => ResponseConstant::RM_INTERNAL_ERROR,
             ], 400);
         }
+    }
+
+    public function cetak_kartu($id){
+        $data = Transaksi::where('id', $id)->first();
+
+        return view('pages.pengguna.pesanan_saya.cetak_kartu', compact('data'));
     }
 }

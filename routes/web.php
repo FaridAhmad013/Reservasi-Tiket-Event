@@ -97,10 +97,11 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
         Route::prefix('pesanan_pengguna')->group(function(){
             Route::get('/', [PesananPenggunaController::class, 'index'])->name('pesanan_pengguna.index');
             Route::get('show_gambar/{id}', [PesananPenggunaController::class, 'show_gambar'])->name('pesanan_pengguna.show_gambar');
-            Route::post('/approve/{id}', [PesananPenggunaController::class, 'approve'])->name('pesanan_pengguna.approve');
-            Route::post('/reject/{id}', [PesananPenggunaController::class, 'reject'])->name('pesanan_pengguna.reject');
+            Route::get('/approve/{id}', [PesananPenggunaController::class, 'approve'])->name('pesanan_pengguna.approve');
+            Route::get('/reject/{id}', [PesananPenggunaController::class, 'reject'])->name('pesanan_pengguna.reject');
             Route::get('/modal/otp', [PesananPenggunaController::class, 'modal'])->name('pesanan_pengguna.modal');
             Route::get('/modal/action/{id}', [PesananPenggunaController::class, 'action'])->name('pesanan_pengguna.action');
+
         });
     });
 
@@ -130,6 +131,8 @@ Route::prefix('pengguna')->middleware([RyunnaAuth::class])->group(function () {
        Route::get('/', [PesananSayaController::class, 'index'])->name('pesanan_saya.index');
        Route::get('/get_list_pesanan', [PesananSayaController::class, 'get_list_pesanan'])->name('pesanan_saya.get_list_pesanan');
        Route::get('/batalkan/{id}', [PesananSayaController::class, 'batalkan'])->name('pesanan_saya.batalkan');
+       Route::get('/cetak_kartu/{id}', [PesananSayaController::class, 'cetak_kartu'])->name('pesanan_saya.cetak_kartu');
+
    });
 });
 

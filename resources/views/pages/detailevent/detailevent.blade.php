@@ -236,9 +236,11 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-primary btn-block" onclick="beliTicket('{{ $detail_event->id }}')">
-          Pesan Tiket
-        </button>
+        @if (@$user->role->role == 'Admin' || @$user->role->role == 'Pengguna')
+          <button class="btn btn-primary btn-block" onclick="beliTicket('{{ $detail_event->id }}')">
+            Pesan Tiket
+          </button>
+        @endif
       </div>
     @endforeach
 
