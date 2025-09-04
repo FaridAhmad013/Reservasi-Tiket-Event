@@ -59,6 +59,7 @@
   let _url = {
     datatable: `{{ route('datatable.'.$module) }}`,
     show_gambar: `{{ route($module.'.show_gambar', ':id') }}`,
+    modal: `{{ route($module.'.modal') }}`,
   }
 
   let table;
@@ -154,6 +155,25 @@
     });
   })
 
+  function modal(id, status){
+    Ryuna.blockUI()
+    $.get(_url.modal+'?id='+id+'&status='+status).done((res) => {
+      Ryuna.modal({
+        title: res?.title,
+        body: res?.body,
+        footer: res?.footer
+      })
+      Ryuna.unblockUI()
+    }).fail((xhr) => {
+      Ryuna.unblockUI()
+      Swal.fire({
+        title: 'Whoops!',
+        text: xhr?.responseJSON?.message ? xhr.responseJSON.message : 'Terjadi Kesalahan Internal',
+        type: 'error',
+        confirmButtonColor: '#007bff'
+      })
+    })
+  }
 
   function show_gambar(id){
     Ryuna.blockUI()

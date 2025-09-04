@@ -97,7 +97,10 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
         Route::prefix('pesanan_pengguna')->group(function(){
             Route::get('/', [PesananPenggunaController::class, 'index'])->name('pesanan_pengguna.index');
             Route::get('show_gambar/{id}', [PesananPenggunaController::class, 'show_gambar'])->name('pesanan_pengguna.show_gambar');
-
+            Route::post('/approve/{id}', [PesananPenggunaController::class, 'approve'])->name('pesanan_pengguna.approve');
+            Route::post('/reject/{id}', [PesananPenggunaController::class, 'reject'])->name('pesanan_pengguna.reject');
+            Route::get('/modal/otp', [PesananPenggunaController::class, 'modal'])->name('pesanan_pengguna.modal');
+            Route::get('/modal/action/{id}', [PesananPenggunaController::class, 'action'])->name('pesanan_pengguna.action');
         });
     });
 

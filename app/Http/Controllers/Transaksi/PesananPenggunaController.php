@@ -72,6 +72,67 @@ class PesananPenggunaController extends Controller
         }
     }
 
+    public function approve($id)
+    {
+
+        try {
+            Transaksi::where('id', $id)->where('status_transaksi', 'menunggu_persetujuan')->update([
+                'status_transaksi' => 'disetujui'
+            ]);
+
+            return response([
+                'status' => true,
+                'message' => 'Berhasil menyetujui transaksi'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'status' => false,
+                'message' => ResponseConstant::RM_INTERNAL_ERROR
+            ], 400);
+        }
+    }
+    public function reject($id)
+    {
+         try {
+            Transaksi::where('id', $id)->where('status_transaksi', 'menunggu_persetujuan')->update([
+                'status_transaksi' => 'ditolak'
+            ]);
+
+            return response([
+                'status' => true,
+                'message' => 'Berhasil menolak transaksi'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'status' => false,
+                'message' => ResponseConstant::RM_INTERNAL_ERROR
+            ], 400);
+        }
+    }
+
+    public function modal(Request $request){
+        $status = $request->status;
+        $id = $request->id;
+        $label = '';
+        if($status == '1'){
+            $label = 'Approve';
+        }
+        if($status == '2'){
+            $label = 'Reject';
+        }
+
+
+        $module = $this->module;
+        $body = view('pages.' . $this->folder . '.modal',compact('label', 'module'))->render();
+        $footer = '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary" onclick="action('.$id.','.$status.')">'.$label.'</button>';
+
+        return [
+            'title' => $label.' ',
+            'body' => $body,
+            'footer' => $footer
+        ];
+    }
+
 
     public function datatable(PesananPenggunaDataTable $dataTable){
         return $dataTable->render('datatable');

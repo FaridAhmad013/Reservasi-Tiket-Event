@@ -29,8 +29,12 @@ class PesananPenggunaDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('aksi', function ($data) {
                 $html = '<div class="btn-group btn-group-sm" branch="group">';
-                $html .= '<button onclick="edit('.$data->id.')" type="button" class="btn btn-sm btn-default" title="Ubah"><i class="fas fa-pen"></i></button>';
-                $html .= '<button onclick="destroy('.$data->id.')" type="button" class="btn btn-sm btn-default" title="Hapus"><i class="fas fa-trash"></i></button>';
+                if(AuthCommon::user()->role->role == 'Admin'){
+                    if($data->status_transaksi == 'menunggu persetujuan'){
+                        $html .= '<button onclick="modal('.$data->id.', \'1\')" type="button" class="btn btn-sm btn-default"><i class="fas fa-check-circle"></i></button>';
+                        $html .= '<button onclick="modal('.$data->id.', \'2\')" type="button" class="btn btn-sm btn-default"><i class="fas fa-times-circle"></i></button>';
+                    }
+                }
                 $html .= '</div>';
                 return $html;
             })
