@@ -127,6 +127,9 @@
         type: 'POST',
         beforeSend: function (request) {
           request.setRequestHeader("X-CSRF-TOKEN", $('meta[name="csrf-token"]').attr('content'));
+        },
+        data: d => {
+          d.search['event_id'] = '{{ $id }}'
         }
       },
       columns: [

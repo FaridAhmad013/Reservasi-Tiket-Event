@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('nomor_transaksi')->unique();
             $table->json('bukti_transaksi');
             $table->string('status_transaksi'); //menunggu persetujuan, disetujui, ditolak, dibatalkan
+            $table->integer('kuantitas');
 
             $table->timestamp('approved_at')->nullable();
             $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('rejected_at')->nullable();
             $table->foreignId('rejected_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->integer('harga');
+            $table->integer('total_harga');
             $table->timestamps();
         });
     }

@@ -46,6 +46,14 @@
             ->item('Event', 'fas fa-clipboard-list', 'admin/master/event', Request::is('admin/master/event', 'admin/master/detail_event'), ['Admin'])
             ->end_group();
 
+        $obj_menu
+            ->divinder('Transaksi', [
+                'Admin'
+            ])
+            ->start_group()
+            ->item('Pesanan Pengguna', 'fas fa-shopping-basket', 'admin/transaksi/pesanan_pengguna', Request::is('admin/transaksi/pesanan_pengguna'), ['Admin'])
+            ->end_group();
+
         // $obj_menu
         //     ->divinder('Ruang Cerita', [
         //         'Pengguna',

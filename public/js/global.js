@@ -397,6 +397,50 @@ class Ryuna {
       }
     });
   }
+
+  static status_detail_event(data)
+  {
+    html = '';
+    switch (data) {
+        //tersedia, habis, ditutup
+      case 'tersedia':
+        html = '<span class="badge text-white bg-success">Tersedia</span>';
+        break;
+      case 'habis':
+        html = '<span class="badge text-white bg-danger">habis</span>';
+        break;
+      case 'ditutup':
+        html = '<span class="badge text-white bg-secondarys">ditutup</span>';
+        break;
+      default:
+        html = '';
+    }
+
+    return html;
+  }
+
+  static status_transaksi(data)
+  {
+    let html = '';
+    switch (data) {
+      case 'menunggu persetujuan':
+        html = '<span class="badge text-dark bg-secondary">menunggu persetujuan</span>';
+        break;
+      case 'disetujui':
+        html = '<span class="badge text-white bg-success">disetujui</span>';
+        break;
+      case 'ditolak':
+        html = '<span class="badge text-white bg-danger">ditolak</span>';
+        break;
+      case 'dibatalkan':
+        html = '<span class="badge text-white bg-danger">dibatalkan</span>';
+        break;
+      default:
+        html = '';
+    }
+
+    return html;
+  }
 }
 
 

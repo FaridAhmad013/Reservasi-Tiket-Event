@@ -43,10 +43,10 @@
               <span class="nav-link-inner--text d-lg-none">{{ @$user->nama_depan }} {{ @$user->nama_belakang }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-profile-icon">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="{{ route('main.index') }}">Beranda</a>
+              <a class="dropdown-item" href="{{ route('pesanan_saya.index') }}">Pesanan Saya</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a href="{{ route('auth.logout') }}" class="dropdown-item">Logout</a>
             </div>
           </li>
         @else

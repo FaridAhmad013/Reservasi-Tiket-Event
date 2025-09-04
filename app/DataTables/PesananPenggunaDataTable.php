@@ -5,8 +5,8 @@ namespace App\DataTables;
 use App\Helpers\AuthCommon;
 use App\Helpers\ConstantUtility;
 use App\Helpers\Util;
-use App\Models\DetailEvent;
 use App\Models\Event;
+use App\Models\Transaksi;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -15,7 +15,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class DetailEventDataTable extends DataTable
+class PesananPenggunaDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -34,42 +34,39 @@ class DetailEventDataTable extends DataTable
                 $html .= '</div>';
                 return $html;
             })
-            ->editColumn('status', function($data){
-                return Util::status_detail_event($data->status);
+            ->editColumn('bukti_transaksi', function($item){
+                return '<a href="javascript:show_gambar('.$item->id.')" class="btn btn-sm btn-success"><i class="fas fa-camera"></i> Lihat Gambar</a>';
             })
-            ->editColumn('harga', function($data){
-                return Util::rupiah(@$data->harga ?? 0);
+            ->editColumn('status_transaksi', function($data){
+                return Util::status_transaksi($data->status_transaksi);
             })
-            ->editColumn('created_at', function ($data) {
-                if ($data->created_at) {
-                    return Carbon::parse($data->created_at)->format('d-m-Y H:i:s');
+            ->editColumn('total_harga', function($data){
+                return Util::rupiah(@$data->total_harga ?? 0);
+            })
+            ->editColumn('rejected_at', function ($data) {
+                if ($data->rejected_at) {
+                    return Carbon::parse($data->rejected_at)->format('d-m-Y H:i:s');
                 }
                 return '';
             })
-            ->editColumn('updated_at', function ($data) {
-                if ($data->updated_at) {
-                    return Carbon::parse($data->updated_at)->format('d-m-Y H:i:s');
+            ->editColumn('approved_at', function ($data) {
+                if ($data->approved_at) {
+                    return Carbon::parse($data->approved_at)->format('d-m-Y H:i:s');
                 }
                 return '';
             })
-            ->rawColumns(['aksi', 'status']);
+            ->rawColumns(['aksi', 'bukti_transaksi', 'status_transaksi']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\DetailEvent $model
+     * @param \App\Models\Transaksi $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(DetailEvent $model): QueryBuilder
+    public function query(Transaksi $model): QueryBuilder
     {
-        $query = $model->newQuery()->with('event');
-
-        if ($this->request()->has('search') && !empty($this->request()->get('search')['event_id'])) {
-            $eventId = $this->request()->get('search')['event_id'];
-            $query->where('event_id', $eventId);
-        }
-
+        $query = $model->newQuery()->with('user')->with('approver')->with('rejector');
         return $query;
     }
 
@@ -88,12 +85,16 @@ class DetailEventDataTable extends DataTable
                 ->width(60)
                 ->orderable(false)
                 ->searchable(false),
-            Column::make('area'),
-            Column::make('jumlah_tiket'),
-            Column::make('status'),
-            Column::make('harga'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('nomor_transaksi'),
+            Column::make('bukti_transaksi'),
+            Column::make('status_transaksi'),
+            Column::make('kuantitas'),
+            Column::make('total_harga'),
+            Column::make('approved_at'),
+            Column::make('approved_by'),
+            Column::make('rejected_at'),
+            Column::make('rejected_by'),
+
         ];
     }
 
@@ -104,6 +105,6 @@ class DetailEventDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'DetailEvent_' . date('YmdHis');
+        return 'Transaksi_' . date('YmdHis');
     }
 }

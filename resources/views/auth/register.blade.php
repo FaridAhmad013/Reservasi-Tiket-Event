@@ -16,36 +16,36 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="text-light" for="nama_depan">Nama Depan</label>
-                  <input type="text" name="nama_depan" id="nama_depan" class="form-control" autocomplete="off">
+                  <input type="text" name="nama_depan" id="nama_depan" class="form-control bg-dark border-dark text-white" autocomplete="off">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="text-light" for="nama_belakang">Nama Belakang</label>
-                  <input type="text" name="nama_belakang" id="nama_belakang" class="form-control" autocomplete="off">
+                  <input type="text" name="nama_belakang" id="nama_belakang" class="form-control bg-dark border-dark text-white" autocomplete="off">
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <label class="text-light" for="email">Email</label>
-              <input type="email" name="email" id="email" class="form-control" autocomplete="off">
+              <input type="email" name="email" id="email" class="form-control bg-dark border-dark text-white" autocomplete="off">
             </div>
 
             <div class="form-group">
               <label class="text-light" for="username">Username</label>
-              <input type="text" name="username" id="username" class="form-control" autocomplete="off">
+              <input type="text" name="username" id="username" class="form-control bg-dark border-dark text-white" autocomplete="off">
             </div>
 
 
             <div class="form-group">
               <label class="text-light" for="password">Password</label>
-              <input type="password" name="password" id="password" class="form-control" autocomplete="off">
+              <input type="password" name="password" id="password" class="form-control bg-dark border-dark text-white" autocomplete="off">
             </div>
 
             <div class="form-group">
               <label class="text-light" for="password_confirmation">Ulangi Password</label>
-              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" autocomplete="off">
+              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control bg-dark border-dark text-white" autocomplete="off">
             </div>
             <div class="form-group mt-5 mb-3">
               <button type="button" class="btn btn-gradient-cyan-magenta btn-block" onclick="save()">Register</button>

@@ -165,41 +165,11 @@
               <div class="d-flex justify-content-end mt-5">
                 <div class="col-12 col-md-9">
                   <div class="text-center text-white" data-aos="zoom-in-down" style="font-size: 2rem; font-weight: bold">🔥 Hot <span style="color: var(--magenta-pink)">Events</span></div>
-                  <div class="row justify-content-center mt-3">
-                    <div class="col-md-4 col-12 mt-3" data-aos="fade-right" data-aos-duration="800">
+                  <div class="row justify-content-center mt-3" id="wrap-hot-events">
+                    <div class="col">
                       <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px var(--magenta-pink)">
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
                         <div class="card-body">
-                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small class="text-light">Jakarta • 12 Okt 2025</small>
-
-                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
-                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-12" data-aos="fade-up" data-aos-duration="800">
-                      <div class="card card-neon bg-transparent overflow-hidden mt-4 shadow-yellow " >
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
-                        <div class="card-body">
-                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small class="text-light">Jakarta • 12 Okt 2025</small>
-
-                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
-                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 col-12 mt-3" data-aos="fade-left" data-aos-duration="800">
-                      <div class="card card-neon bg-transparent overflow-hidden mt-4" >
-                        <img class="card-img-top img-fluid" src="{{ asset('images/gambar_events/concert/74cf50ca-623e-4be5-9ad4-5d4530e4e707.jpg') }}" style="height: calc(0.25rem * 48)">
-                        <div class="card-body">
-                          <h2 class="d-block text-white">Konser EDM Galaxy 2025</h2>
-                          <small class="text-light">Jakarta • 12 Okt 2025</small>
-
-                          <button onclick="window.location.href='{{ route('tickets.show', 1) }}'" 
-                          class="btn btn-block btn-gradient-magenta-purple mt-3">Beli Tiket</button>
+                          <center class="text-white">Data Tidak Ditemukan</center>
                         </div>
                       </div>
                     </div>
@@ -212,6 +182,7 @@
       </section>
     </div>
   </div>
+
 
 
   <!-- Fab Button -->
@@ -254,6 +225,60 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
+    let _url = {
+      get_hot_event: `{{ route('main.get_hot_event') }}`,
+      detail_ticket: `{{ route('ticket.show', ':id') }}`
+    }
+
+    $(() => {
+      get_hot_event()
+    })
+
+    function get_hot_event(){
+      $('#wrap-hot-events').empty()
+
+      $.get(_url.get_hot_event).done((res) => {
+        const data = res?.data ?? []
+        const color = ['var(--magenta-pink) !important', 'var(--cyber-yellow) !important;', '#00FFFF !important;']
+        const fade = ['fade-right', 'fade-top', 'fade-left']
+
+        if(data){
+          data.forEach((item, index) => {
+            let foto = ''
+            if(item.foto){
+              try {
+                foto = JSON.parse(item.foto)
+                foto = base_url + 'storage/'+foto[0].value
+              } catch (error) {
+                console.error(error)
+              }
+            }
+
+            const minHarga = item.detail_events_min_harga != null ? Ryuna.format_nominal(item.detail_events_min_harga) : null
+            const maxHarga = item.detail_events_max_harga != null ? Ryuna.format_nominal(item.detail_events_max_harga) : null
+
+            console.log(item, minHarga, maxHarga)
+
+            $('#wrap-hot-events').append(`
+              <div class="col-md-4 col-12 ${data.length == 3 && index == 1 ? 'mt-5' : ''}" data-aos="${fade[index]}" data-aos-duration="800">
+                <div class="card card-neon bg-transparent overflow-hidden mt-4" style="box-shadow: 0 0 15px ${color[index]}">
+                  <img class="card-img-top img-fluid" src="${foto}" style="height: calc(0.25rem * 48)">
+                  <small class="position-absolute p-2 ${minHarga == null && maxHarga == null ? 'd-none' : ''} text-white font-weight-bold" style="background-color: ${color[index]}; top: 0; left: 0; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">${minHarga ? minHarga : ''} ${maxHarga ? 's/d <br>'+maxHarga : ''}</small>
+
+                  <div class="card-body">
+                    <h2 class="d-block text-white">${item.nama_event}</h2>
+                    <small class="text-light">${Ryuna.format_tanggal_bahasa(item.waktu_event)}</small>
+
+                    <button type="button" onclick="detail_ticket('${item.id}')" class="btn btn-block btn-outline-primary mt-3">Detail Ticket</button>
+                  </div>
+                </div>
+              </div>
+            `)
+          })
+        }
+      })
+    }
+
     AOS.init();
     // var typed = new Typed('.hero-title', {
     //   strings: ['<span style="color:#00FFFF;">Temukan</span> & <span style="color:#FF00FF;">Beli Tiket</span> <span style="color:#FFD700;">Konser Favoritmu</span>'],
@@ -270,6 +295,9 @@
     //   }
     // });
 
+    function detail_ticket(id){
+      window.location.href = _url.detail_ticket.replace(':id', id)
+    }
   </script>
 </body>
 

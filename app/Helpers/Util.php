@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Util
 {
@@ -94,6 +95,29 @@ class Util
         break;
       case 'ditutup':
         $html = '<span class="badge text-white bg-secondarys">ditutup</span>';
+        break;
+      default:
+        $html = '';
+    }
+
+    return $html;
+  }
+
+  public static function status_transaksi($data)
+  {
+    $html = '';
+    switch ($data) {
+      case 'menunggu persetujuan':
+        $html = '<span class="badge text-dark bg-secondary">menunggu persetujuan</span>';
+        break;
+      case 'disetujui':
+        $html = '<span class="badge text-white bg-success">disetujui</span>';
+        break;
+      case 'ditolak':
+        $html = '<span class="badge text-white bg-danger">ditolak</span>';
+        break;
+      case 'dibatalkan':
+        $html = '<span class="badge text-white bg-danger">dibatalkan</span>';
         break;
       default:
         $html = '';
@@ -195,6 +219,26 @@ class Util
 
   public static function tanggal_bahasa($tanggal){
     return str_replace('(', self::getNamaBulanIndonesia(Carbon::parse($tanggal)->format('m')), Carbon::parse($tanggal)->format('d ( Y H:i'));
+  }
+
+/*************  ✨ Windsurf Command ⭐  *************/
+  /**
+
+/*******  c52d8e64-fbb3-432b-bc34-5c8017950365  *******/
+
+  public static function generateTransactionNumber($eventId, $detailEventId, $userId)
+  {
+        $prefix = "TRX";
+        $date = now()->format('Ymd');
+
+        // hitung transaksi hari ini
+        $count = DB::table('transaksis')
+            ->whereDate('created_at', now()->toDateString())
+            ->count();
+
+        $counter = str_pad($count + 1, 4, '0', STR_PAD_LEFT);
+
+        return "{$prefix}-{$eventId}-{$detailEventId}-{$userId}-{$date}-{$counter}";
   }
 }
 

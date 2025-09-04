@@ -79,6 +79,15 @@
   color: var(--off-white);
 }
 
+.btn-outline-primary{
+  border-color: rgb(69, 152, 244);
+  color: rgb(69, 152, 244);
+}
+.btn-outline-primary:hover{
+  background-color: rgb(69, 152, 244);
+  color: white;
+}
+
 .navbar-vertical.navbar-expand-xs .navbar-nav > .nav-item > .nav-link.active
 {
     margin-right: 0.5rem;
@@ -670,7 +679,7 @@ body {
     background-color: rgb(0, 255, 255);
 }
 
-.card-header, .card-block, .note-editor.note-airframe .note-statusbar, .note-editor.note-frame .note-statusbar, .note-editor.note-airframe, .note-editor.note-frame, .swal2-popup, .select2-container .select2-selection--single, .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-dropdown, .select2-results__option, .dropdown-menu, .page-item.disabled .page-link, .dropdown-menu .dropdown-item{
+.card-header, .card-footer, .card-block, .note-editor.note-airframe .note-statusbar, .note-editor.note-frame .note-statusbar, .note-editor.note-airframe, .note-editor.note-frame, .swal2-popup, .select2-container .select2-selection--single, .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-dropdown, .select2-results__option, .dropdown-menu, .page-item.disabled .page-link, .dropdown-menu .dropdown-item{
   background: #212529 !important;
   border: 1px solid #212529 !important;
   color: #adb5bd !important;

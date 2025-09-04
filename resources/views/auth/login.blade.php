@@ -1,10 +1,20 @@
 @extends('auth.parent')
 
+@section('styles')
+
+<style>
+
+</style>
+
+@endsection
+
 @section('content')
   <div class="row justify-content-center align-items-center" style="height: 100vh">
     <div class="col-md-4">
-      <div class="card card-neon bg-transparent mt-5">
+      <div class="card card-neon bg-transparent mt-5 mb-3">
         <div class="card-body">
+          <a href="{{ route('main.index') }}" class="btn btn-outline-primary" type="button"><i class="fas fa-arrow-left"></i></a>
+
           <div class="text-center" style="color: var(--cyan-300); font-size: 2rem; font-weight: bold">Ngevent<span style="color: var(--magenta-pink)">Yuk</span></div>
           <div class="text-center text-light text-sm">Masuk ke akunmu</div>
           <div id="response_container" class="my-3"></div>
@@ -59,10 +69,16 @@
 
           if($('[name="_method"]').val() == undefined) el_form[0].reset()
 
+
           setTimeout(() => {
             $('#btn-submit').prop('disabled', false)
-            window.location.href = `{{ route('dashboard.index') }}`
-          }, 1000);
+
+            if(res.data.role.toLowerCase() == 'admin'){
+              window.location.href = `{{ route('dashboard.index') }}`
+              return;
+            }
+            window.location.href = `{{ route('main.index') }}`
+          }, 500);
         }
       }).fail((xhr) => {
         $('#btn-submit').prop('disabled', false)

@@ -7,16 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     protected $fillable = [
+        'event_id',
         'detail_event_id',
         'bukti_transaksi',
+        'nomor_transaksi',
         'status_transaksi',
         'approved_at',
         'approved_by',
         'rejected_at',
         'rejected_by',
-        'harga',
+        'total_harga',
         'user_id',
+        'kuantitas'
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 
     public function detailEvent()
     {

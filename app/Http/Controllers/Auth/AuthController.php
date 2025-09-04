@@ -85,21 +85,15 @@ class AuthController extends Controller
         $data_session = (object) $result->toArray();
         unset($result->password);
         $data_session->role = $get_role;
-        // menentukan tema jika pengguna
-        if($get_role->role == 'Pengguna'){
-            $data_session->theme = ConstantUtility::THEME_PERTANYAAN_DEFAULT;
-
-            $respon_ai_result = SesiJournal::where('user_id', $data_session->id)->whereNotNull('kesimpulan_ai')->latest()->first();
-            if($respon_ai_result){
-                $data_session->theme = GeminiUtility::tentukanTemaHarian($respon_ai_result->kesimpulan_ai, $result->id);
-            }
-        }
         AuthCommon::setUser($data_session);
 
-        User::where('username', $request->username)->update(['last_login' => Carbon::now()]);
+        $user = User::where('username', $request->username)->update(['last_login' => Carbon::now()]);
         return response([
             'status' => true,
-            'message' => 'Login Berhasil'
+            'message' => 'Login Berhasil',
+            'data' => [
+                'role' => $get_role->role
+            ]
         ]);
     }
 

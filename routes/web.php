@@ -1,5 +1,6 @@
 <?php
 
+use App\DataTables\PesananPenggunaDataTable;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Middleware\RyunnaAuth;
@@ -10,9 +11,11 @@ use App\Http\Controllers\Master\DetailEventController;
 use App\Http\Controllers\Master\EventController;
 use App\Http\Controllers\Master\KategoriPertanyaanController;
 use App\Http\Controllers\Master\PertanyaanController;
+use App\Http\Controllers\Pengguna\PesananSayaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\RuangCerita\ObrolanController;
+use App\Http\Controllers\Transaksi\PesananPenggunaController;
 use App\Http\Controllers\UploadController;
 use App\Http\Middleware\RedirectResetPassword;
 
@@ -37,7 +40,8 @@ Route::get('timezone', function () {
     dd(date("Y-m-d H:i:s"));
 });
 
-Route::get('/', [MainController::class, 'index'])->name('pengguna.index');
+Route::get('/', [MainController::class, 'index'])->name('main.index');
+Route::get('get_hot_event', [MainController::class, 'get_hot_event'])->name('main.get_hot_event');
 Route::namespace('App\Http\Controllers\Auth')->group(function () {
     Route::prefix('login')->group(function () {
         Route::get('/', [AuthController::class, 'login'])->name('auth.login');
@@ -89,6 +93,14 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
         });
     });
 
+    Route::prefix('transaksi')->group(function(){
+        Route::prefix('pesanan_pengguna')->group(function(){
+            Route::get('/', [PesananPenggunaController::class, 'index'])->name('pesanan_pengguna.index');
+            Route::get('show_gambar/{id}', [PesananPenggunaController::class, 'show_gambar'])->name('pesanan_pengguna.show_gambar');
+
+        });
+    });
+
     Route::post('upload/image', [UploadController::class, 'image'])->name('upload.image');
     Route::get('form_image_picker', [UploadController::class, 'form_image_picker'])->name('upload.form_image_picker');
     Route::post('store_image_picker', [UploadController::class, 'store_image_picker'])->name('upload.store_image_picker');
@@ -100,6 +112,8 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
         Route::post('role', [RoleController::class, 'datatable'])->name('datatable.role');
         Route::post('event', [EventController::class, 'datatable'])->name('datatable.event');
         Route::post('detail_event', [DetailEventController::class, 'datatable'])->name('datatable.detail_event');
+        Route::post('pesanan_pengguna', [PesananPenggunaController::class, 'datatable'])->name('datatable.pesanan_pengguna');
+
 
     });
 
@@ -108,5 +122,18 @@ Route::prefix('admin')->middleware([RyunnaAuth::class])->group(function () {
     });
 });
 
+Route::prefix('pengguna')->middleware([RyunnaAuth::class])->group(function () {
+   Route::prefix('pesanan_saya')->group(function () {
+       Route::get('/', [PesananSayaController::class, 'index'])->name('pesanan_saya.index');
+       Route::get('/get_list_pesanan', [PesananSayaController::class, 'get_list_pesanan'])->name('pesanan_saya.get_list_pesanan');
+       Route::get('/batalkan/{id}', [PesananSayaController::class, 'batalkan'])->name('pesanan_saya.batalkan');
+   });
+});
 
-Route::get('/tickets/{id}', [TicketController::class, 'show'])->name('tickets.show');
+Route::prefix('ticket')->group(function () {
+    Route::get('/{id}', [TicketController::class, 'show'])->name('ticket.show');
+    Route::prefix('beli_tiket')->group(function () {
+        Route::get('/{detail_event_id}', [TicketController::class, 'beli_ticket_form'])->name('ticket.beli_tiket.create');
+        Route::post('/{detail_event_id}', [TicketController::class, 'beli_ticket_store'])->name('ticket.beli_tiket.create');
+    });
+});
